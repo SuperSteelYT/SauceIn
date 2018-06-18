@@ -36,7 +36,7 @@ public class Command_list extends SauceInPlus implements CommandExecutor
             String tag = "";
             if (Rank.seniorSauceAdminList.contains(sender.getName()))
             {
-                tag = (ChatColor.DARK_AQUA + "[SrS]");
+                tag = (ChatColor.DARK_AQUA + "[SrSA]");
             }
             else if (Rank.sauceAdminList.contains(sender.getName()))
             {
