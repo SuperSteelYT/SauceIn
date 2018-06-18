@@ -17,6 +17,7 @@ public class SauceIn extends AeroPlugin<SauceIn>
         this.getCommand("opall").setExecutor(new Command_opall());
         this.getCommand("op").setExecutor(new Command_op());
         this.getCommand("opme").setExecutor(new Command_opme());
+        this.getCommand("list").setExecutor(new Command_list());
         Log.info("Loaded " + SauceInPlus.commandSize + " commands.");
         Log.info("Enabled.");
     }

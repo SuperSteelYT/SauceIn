@@ -11,7 +11,7 @@ public class SauceInPlus
     public static final String playerNotFoundException = ChatColor.GRAY + "Player not found!";
     public static final String noPermissionException = ChatColor.RED + "No permission.";
     public static final String giveOperatorAction = ChatColor.DARK_PURPLE + "You are now an operator!";
-    public static final Integer commandSize = 6;
+    public static final Integer commandSize = 7;
     protected void msg(String message)
     {
         sender.sendMessage(ChatColor.GRAY + message);

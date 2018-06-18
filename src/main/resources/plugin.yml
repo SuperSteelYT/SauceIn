@@ -26,6 +26,9 @@ commands:
     opme:
         description: Gives operator to the sender
         usage: /<command>
+    list:
+        description: List of players
+        usage: /<command>
 permissions:
     saucein.*:
         description: Gives all permissions to the SauceIn plugin.
