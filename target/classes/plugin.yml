@@ -1,0 +1,60 @@
+name: SauceIn
+description: A plugin designed for an all-op server and gives memories of the old TotalFreedom IP address.
+version: 1.0
+main: me.superischroma.saucein.SauceIn
+author: [Super_]
+depend: [Aero]
+commands:
+    creative:
+        description: Creative gamemode management.
+        usage: /<command> [player]
+        aliases: [gmc]
+    survival:
+        description: Survival gamemode management.
+        usage: /<command> [player]
+        aliases: [gms]
+    totalfreedom:
+        description: Tells the sender about the TotalFreedom server
+        usage: /<command>
+        aliases: [tf]
+    opall:
+        description: Gives operator to all players on the server
+        usage: /<command> [-c | -s | -a]
+    op:
+        description: Gives operator to the player described
+        usage: /<command> <playername>
+    opme:
+        description: Gives operator to the sender
+        usage: /<command>
+permissions:
+    saucein.*:
+        description: Gives all permissions to the SauceIn plugin.
+        children:
+            saucein.creative: true
+            saucein.creative.others: true
+            saucein.survival: true
+            saucein.survival.others: true
+            saucein.opall: true
+            saucein.op: true
+            saucein.opme: true
+    saucein.creative:
+        description: Gives permissions to the /creative command.
+        default: op
+    saucein.creative.others:
+        description: Gives permissions to the [player] argument of the /creative command.
+        default: op
+    saucein.survival:
+        description: Gives permissions to the /survival command.
+        default: op
+    saucein.survival.others:
+        description: Gives permissions to the [player] argument of the /survival command.
+        default: op
+    saucein.opall:
+        description: Gives permissions to the /opall command.
+        default: false
+    saucein.op:
+        description: Gives permissions to the /op command.
+        default: op
+    saucein.opme:
+        description: Gives permissions to the /opme command.
+        default: op
