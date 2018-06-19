@@ -60,7 +60,7 @@ public class Command_list extends SauceInPlus implements CommandExecutor
             }
             else
             {
-                tag = (ChatColor.GREEN + "[Non-Op]");
+                tag = (ChatColor.BLUE + "[Non-Op]");
             }
             pnames.add(tag + " " + all.getName() + ChatColor.RESET);
         }

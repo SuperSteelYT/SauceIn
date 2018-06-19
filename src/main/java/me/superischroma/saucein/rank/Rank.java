@@ -41,7 +41,7 @@ public class Rank implements Listener
     // Owner list
     public static final List<String> owners = Arrays.asList
     (
-        ""
+        "Telnet_"
     );
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event)
@@ -59,8 +59,8 @@ public class Rank implements Listener
         String operatorlm = ChatColor.GREEN + eplayername + " is an " + ChatColor.GOLD + "Op";
         String sauceadminlm = ChatColor.GREEN + eplayername + " is a " + ChatColor.RED + "Sauce Admin";
         String seniorsauceadminlm = ChatColor.GREEN + eplayername + " is a " + ChatColor.DARK_AQUA + "Sr. Sauce Admin";
-        String developerlm = ChatColor.GREEN + eplayername + " is a Developer";
-        String ownerlm = ChatColor.GREEN + eplayername + " is the " + ChatColor.GREEN + "Owner";
+        String developerlm = ChatColor.GREEN + eplayername + " is a " + ChatColor.LIGHT_PURPLE + "Developer";
+        String ownerlm = ChatColor.GREEN + eplayername + " is the Owner";
         // Sauce Admin Login
         if (sauceAdminList.contains(eplayername))
         {
