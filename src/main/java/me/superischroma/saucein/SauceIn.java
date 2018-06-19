@@ -5,7 +5,6 @@ import me.superischroma.saucein.command.*;
 import me.superischroma.saucein.rank.Rank;
 import me.superischroma.saucein.util.SauceInPlus;
 import net.pravian.aero.plugin.AeroPlugin;
-import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 
 public class SauceIn extends AeroPlugin<SauceIn>
@@ -15,20 +14,22 @@ public class SauceIn extends AeroPlugin<SauceIn>
     {
         return instance;
     }
-    public void registerListeners()
+    // Register listeners
+    private void registerListeners()
     {
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents(new Rank(this), this);
+        pm.registerEvents(new ChatManagement(this), this);
     }
+    // Register the configuration file
     private void registerConfig()
     {
         getConfig().options().copyDefaults(true);
         saveConfig();
     }
-    @Override
-    public void enable()
+    // Register all commands
+    private void registerCommands()
     {
-        // Commands
         this.getCommand("creative").setExecutor(new Command_creative());
         this.getCommand("survival").setExecutor(new Command_survival());
         this.getCommand("totalfreedom").setExecutor(new Command_totalfreedom());
@@ -38,6 +39,13 @@ public class SauceIn extends AeroPlugin<SauceIn>
         this.getCommand("deop").setExecutor(new Command_deop());
         this.getCommand("opme").setExecutor(new Command_opme());
         this.getCommand("list").setExecutor(new Command_list());
+        this.getCommand("rank").setExecutor(new Command_rank());
+        this.getCommand("adminchat").setExecutor(new Command_adminchat());
+    }
+    @Override
+    public void enable()
+    {
+        registerCommands();
         Log.info("Loaded " + SauceInPlus.commandSize + " commands.");
         instance = this;
         registerListeners();

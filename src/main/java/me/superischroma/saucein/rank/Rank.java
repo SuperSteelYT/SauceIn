@@ -26,12 +26,12 @@ public class Rank implements Listener
     // Sauce Admin list
     public static final List<String> sauceAdminList = Arrays.asList
     (
-        ""
+        "Emliei"
     );
     // Senior Sauce Admin list
     public static final List<String> seniorSauceAdminList = Arrays.asList
     (
-        ""
+        "Shadowsynth"
     );
     // Developer list
     public static final List<String> developerList = Arrays.asList
@@ -50,40 +50,31 @@ public class Rank implements Listener
         Player eplayer = event.getPlayer();
         String eplayername = eplayer.getName();
         String eplayerdname = eplayer.getDisplayName();
-        // Ranks
-        String sauceadmin = ChatColor.RED + "[Sauce Admin] " + ChatColor.RESET + eplayerdname + ChatColor.RESET + "";
-        String seniorsauceadmin = ChatColor.DARK_AQUA + "[Senior Sauce Admin] " + ChatColor.RESET + eplayerdname + ChatColor.RESET + "";
-        String developer = ChatColor.LIGHT_PURPLE + "[Developer] " + ChatColor.RESET + eplayerdname + ChatColor.RESET + "";
-        String owner = ChatColor.GREEN + "[Owner] " + ChatColor.RESET + eplayerdname + ChatColor.RESET + "";
         // Login messages
         String operatorlm = ChatColor.GREEN + eplayername + " is an " + ChatColor.GOLD + "Op";
         String sauceadminlm = ChatColor.GREEN + eplayername + " is a " + ChatColor.RED + "Sauce Admin";
-        String seniorsauceadminlm = ChatColor.GREEN + eplayername + " is a " + ChatColor.DARK_AQUA + "Sr. Sauce Admin";
+        String seniorsauceadminlm = ChatColor.GREEN + eplayername + " is a " + ChatColor.DARK_AQUA + "Senior Sauce Admin";
         String developerlm = ChatColor.GREEN + eplayername + " is a " + ChatColor.LIGHT_PURPLE + "Developer";
         String ownerlm = ChatColor.GREEN + eplayername + " is the Owner";
         // Sauce Admin Login
         if (sauceAdminList.contains(eplayername))
         {
             Bukkit.broadcastMessage(sauceadminlm);
-            eplayer.setDisplayName(sauceadmin);
         }
         // Senior Sauce Admin Login
         else if (seniorSauceAdminList.contains(eplayername))
         {
             Bukkit.broadcastMessage(seniorsauceadminlm);
-            eplayer.setDisplayName(seniorsauceadmin);
         }
         // Developer Login
         else if (developerList.contains(eplayername))
         {
             Bukkit.broadcastMessage(developerlm);
-            eplayer.setDisplayName(developer);
         }
         // Owner(s) Login
         else if (owners.contains(eplayername))
         {
             Bukkit.broadcastMessage(ownerlm);
-            eplayer.setDisplayName(owner);
         }
         // OP Login
         else if (!sauceAdminList.contains(eplayername) 

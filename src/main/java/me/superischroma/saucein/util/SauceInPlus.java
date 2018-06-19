@@ -9,5 +9,5 @@ public class SauceInPlus
     public static final String noPermissionException = ChatColor.RED + "No permission.";
     public static final String giveOperatorAction = ChatColor.DARK_PURPLE + "You are now an operator!";
     public static final String revokeOperatorAction = ChatColor.DARK_PURPLE + "You are no longer an operator!";
-    public static final Integer commandSize = 9;
+    public static final Integer commandSize = 10;
 }

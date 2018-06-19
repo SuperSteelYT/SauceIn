@@ -25,16 +25,23 @@ commands:
         usage: /<command>
     op:
         description: Gives operator to the player described
-        usage: /<command> <playername>
+        usage: /<command> <player>
     deop:
         description: Revokes operator from the player described
-        usage: /<command> <playername>
+        usage: /<command> <player>
     opme:
         description: Gives operator to the sender
         usage: /<command>
     list:
         description: List of players
         usage: /<command>
+    rank:
+        description: Shows the rank of the player described
+        usage: /<command> [player]
+    adminchat:
+        description: Toggle adminchat.
+        usage: /<command>
+        aliases: [o]
 permissions:
     saucein.*:
         description: Gives all permissions to the SauceIn plugin.
@@ -48,18 +55,8 @@ permissions:
             saucein.opme: true
             saucein.deopall: true
             saucein.deop: true
-    saucein.sadmin:
-        description: Gives all sauceadmin permissions to the SauceIn plugin.
-        children:
-            saucein.creative: true
-            saucein.creative.others: true
-            saucein.survival: true
-            saucein.survival.others: true
-            saucein.opall: true
-            saucein.op: true
-            saucein.opme: true
-            saucein.deopall: true
-            saucein.deop: true
+            saucein.rank: true
+            saucein.viewadminchat: true
     saucein.creative:
         description: Gives permissions to the /creative command.
         default: op
@@ -87,3 +84,9 @@ permissions:
     saucein.opme:
         description: Gives permissions to the /opme command.
         default: op
+    saucein.rank:
+        description: Gives permissions to the /rank command.
+        default: op
+    saucein.viewadminchat:
+        description: Gives permissions to view adminchat messages
+        default: false
