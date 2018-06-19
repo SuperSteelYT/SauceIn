@@ -56,11 +56,11 @@ public class Rank implements Listener
         String developer = ChatColor.LIGHT_PURPLE + "[Developer] " + ChatColor.RESET + eplayerdname + ChatColor.RESET + "";
         String owner = ChatColor.GREEN + "[Owner] " + ChatColor.RESET + eplayerdname + ChatColor.RESET + "";
         // Login messages
-        String operatorlm = ChatColor.DARK_PURPLE + eplayername + " is an " + ChatColor.GOLD + "OP";
-        String sauceadminlm = ChatColor.DARK_PURPLE + eplayername + " is a " + ChatColor.RED + "Sauce Admin";
-        String seniorsauceadminlm = ChatColor.DARK_PURPLE + eplayername + " is a " + ChatColor.DARK_AQUA + "Senior Sauce Admin";
-        String developerlm = ChatColor.DARK_PURPLE + eplayername + " is a Developer";
-        String ownerlm = ChatColor.DARK_PURPLE + eplayername + " is the " + ChatColor.GREEN + "Owner";
+        String operatorlm = ChatColor.GREEN + eplayername + " is an " + ChatColor.GOLD + "Op";
+        String sauceadminlm = ChatColor.GREEN + eplayername + " is a " + ChatColor.RED + "Sauce Admin";
+        String seniorsauceadminlm = ChatColor.GREEN + eplayername + " is a " + ChatColor.DARK_AQUA + "Sr. Sauce Admin";
+        String developerlm = ChatColor.GREEN + eplayername + " is a Developer";
+        String ownerlm = ChatColor.GREEN + eplayername + " is the " + ChatColor.GREEN + "Owner";
         // Sauce Admin Login
         if (sauceAdminList.contains(eplayername))
         {

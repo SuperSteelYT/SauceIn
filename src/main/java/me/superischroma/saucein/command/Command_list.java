@@ -9,9 +9,9 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
 import java.util.ArrayList;
 import java.util.List;
+import static me.superischroma.saucein.rank.Rank.*;
 
 public class Command_list extends SauceInPlus implements CommandExecutor
 {
@@ -50,9 +50,17 @@ public class Command_list extends SauceInPlus implements CommandExecutor
             {
                 tag = (ChatColor.GREEN + "[Owner]");
             }
+            else if (!sauceAdminList.contains(sender.getName()) 
+                && !seniorSauceAdminList.contains(sender.getName())
+                && !developerList.contains(sender.getName())
+                && !owners.contains(sender.getName())
+                && sender.isOp())
+            {
+                tag = (ChatColor.GOLD + "[Op]");
+            }
             else
             {
-                tag = (ChatColor.GOLD + "[OP]");
+                tag = (ChatColor.GREEN + "[Non-Op]");
             }
             pnames.add(tag + " " + all.getName() + ChatColor.RESET);
         }
