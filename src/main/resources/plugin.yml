@@ -1,6 +1,6 @@
 name: SauceIn
 description: A plugin designed for an all-op server and gives memories of the old TotalFreedom IP address.
-version: 1.0
+version: 1.1
 main: me.superischroma.saucein.SauceIn
 author: [Super_]
 depend: [Aero]
