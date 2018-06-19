@@ -20,6 +20,11 @@ public class SauceIn extends AeroPlugin<SauceIn>
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents(new Rank(this), this);
     }
+    private void registerConfig()
+    {
+        getConfig().options().copyDefaults(true);
+        saveConfig();
+    }
     @Override
     public void enable()
     {
@@ -36,8 +41,9 @@ public class SauceIn extends AeroPlugin<SauceIn>
         Log.info("Loaded " + SauceInPlus.commandSize + " commands.");
         instance = this;
         registerListeners();
-        this.saveDefaultConfig();
         Log.info("Loaded all events.");
+        registerConfig();
+        Log.info("Loaded configuration file.");
         Log.info("Enabled.");
     }
     @Override

@@ -35,9 +35,6 @@ commands:
     list:
         description: List of players
         usage: /<command>
-    admin:
-        description: Manage the admin list
-        usage: /<command> [add | remove]
 permissions:
     saucein.*:
         description: Gives all permissions to the SauceIn plugin.
