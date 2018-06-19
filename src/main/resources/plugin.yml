@@ -20,8 +20,14 @@ commands:
     opall:
         description: Gives operator to all players on the server
         usage: /<command> [-c | -s | -a]
+    deopall:
+        description: Revokes operator from all players on the server
+        usage: /<command>
     op:
         description: Gives operator to the player described
+        usage: /<command> <playername>
+    deop:
+        description: Revokes operator from the player described
         usage: /<command> <playername>
     opme:
         description: Gives operator to the sender
@@ -29,6 +35,9 @@ commands:
     list:
         description: List of players
         usage: /<command>
+    admin:
+        description: Manage the admin list
+        usage: /<command> [add | remove]
 permissions:
     saucein.*:
         description: Gives all permissions to the SauceIn plugin.
@@ -40,6 +49,20 @@ permissions:
             saucein.opall: true
             saucein.op: true
             saucein.opme: true
+            saucein.deopall: true
+            saucein.deop: true
+    saucein.sadmin:
+        description: Gives all sauceadmin permissions to the SauceIn plugin.
+        children:
+            saucein.creative: true
+            saucein.creative.others: true
+            saucein.survival: true
+            saucein.survival.others: true
+            saucein.opall: true
+            saucein.op: true
+            saucein.opme: true
+            saucein.deopall: true
+            saucein.deop: true
     saucein.creative:
         description: Gives permissions to the /creative command.
         default: op
@@ -54,6 +77,12 @@ permissions:
         default: op
     saucein.opall:
         description: Gives permissions to the /opall command.
+        default: false
+    saucein.deopall:
+        description: Gives permissions to the /deopall command.
+        default: false
+    saucein.deop:
+        description: Gives permissions to the /deop command.
         default: false
     saucein.op:
         description: Gives permissions to the /op command.

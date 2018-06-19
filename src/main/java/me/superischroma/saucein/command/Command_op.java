@@ -29,6 +29,7 @@ public class Command_op extends SauceInPlus implements CommandExecutor
                 }
                 target.setOp(true);
                 Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + sender.getName() + " * Giving operator to " + target.getName());
+                target.sendMessage(giveOperatorAction);
                 return true;
             }
             else

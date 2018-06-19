@@ -46,7 +46,7 @@ public class Command_list extends SauceInPlus implements CommandExecutor
             {
                 tag = (ChatColor.LIGHT_PURPLE + "[Dev]");
             }
-            else if (Rank.owner.contains(sender.getName()))
+            else if (Rank.owners.contains(sender.getName()))
             {
                 tag = (ChatColor.GREEN + "[Owner]");
             }
