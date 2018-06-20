@@ -15,7 +15,6 @@ public class Command_adminchat extends SauceInPlus implements CommandExecutor
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
     {
         Player playerSender = (Player) sender;
-        String message = args[0];
         if (cmd.getName().equalsIgnoreCase("adminchat"))
         {
             if (sender.hasPermission("saucein.accessadminchat"))
@@ -34,10 +33,6 @@ public class Command_adminchat extends SauceInPlus implements CommandExecutor
                         ChatManagement.publicchat.add(playerSender);
                         return true;
                     }
-                }
-                else if (args.length == 1)
-                {
-                    
                 }
             }
         }
