@@ -90,3 +90,6 @@ permissions:
     saucein.viewadminchat:
         description: Gives permissions to view adminchat messages
         default: false
+    saucein.accessadminchat:
+        description: Gives permissions to the /adminchat command.
+        default: false

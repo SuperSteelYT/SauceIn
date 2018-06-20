@@ -9,6 +9,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import java.util.ArrayList;
 import me.superischroma.saucein.rank.Rank;
+import me.superischroma.saucein.util.Log;
 
 public class ChatManagement extends SauceInPlus implements Listener
 {
@@ -31,7 +32,34 @@ public class ChatManagement extends SauceInPlus implements Listener
             adminchattoggle = false;
             for (Player player : Bukkit.getOnlinePlayers())
             {
-                player.sendMessage(p.getDisplayName() + ": " + event.getMessage());
+                if (Rank.sauceAdminList.contains(p.getName()))
+                {
+                    player.sendMessage(ChatColor.RED + "[Sauce Admin] " + p.getDisplayName() + ": " + event.getMessage());
+                }
+                else if (Rank.seniorSauceAdminList.contains(p.getName()))
+                {
+                    player.sendMessage(ChatColor.DARK_AQUA + "[Sr. Sauce Admin] " + p.getDisplayName() + ": " + event.getMessage());
+                }
+                else if (Rank.developerList.contains(p.getName()))
+                {
+                    player.sendMessage(ChatColor.LIGHT_PURPLE + "[Developer] " + p.getDisplayName() + ": " + event.getMessage());
+                }
+                else if (Rank.owners.contains(p.getName()))
+                {
+                    player.sendMessage(ChatColor.GREEN + "[Owner] " + p.getDisplayName() + ": " + event.getMessage());
+                }
+                else if (!Rank.sauceAdminList.contains(p.getName())
+                        && !Rank.seniorSauceAdminList.contains(p.getName())
+                        && !Rank.developerList.contains(p.getName())
+                        && !Rank.owners.contains(p.getName())
+                        && p.isOp())
+                {
+                    player.sendMessage(p.getDisplayName() + ": " + event.getMessage());
+                }
+                else
+                {
+                    player.sendMessage(p.getDisplayName() + ": " + event.getMessage());
+                }
             }
         }
         else if (adminchat.contains(p))
@@ -41,6 +69,7 @@ public class ChatManagement extends SauceInPlus implements Listener
             for (Player player : Bukkit.getOnlinePlayers())
             {
                 player.sendMessage(ChatColor.RED + "[SAUCEADMIN] " + ChatColor.GOLD + p.getName() + ChatColor.RESET + ": " + ChatColor.AQUA + event.getMessage());
+                Log.info("[SAUCEADMIN] " + p.getName() + ": " + event.getMessage());
             }
         }
     }

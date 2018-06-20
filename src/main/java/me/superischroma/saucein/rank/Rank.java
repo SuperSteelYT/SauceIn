@@ -3,6 +3,7 @@ package me.superischroma.saucein.rank;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import me.superischroma.saucein.ChatManagement;
 import me.superischroma.saucein.SauceIn;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -60,21 +61,25 @@ public class Rank implements Listener
         if (sauceAdminList.contains(eplayername))
         {
             Bukkit.broadcastMessage(sauceadminlm);
+            ChatManagement.publicchat.add(eplayer);
         }
         // Senior Sauce Admin Login
         else if (seniorSauceAdminList.contains(eplayername))
         {
             Bukkit.broadcastMessage(seniorsauceadminlm);
+            ChatManagement.publicchat.add(eplayer);
         }
         // Developer Login
         else if (developerList.contains(eplayername))
         {
             Bukkit.broadcastMessage(developerlm);
+            ChatManagement.publicchat.add(eplayer);
         }
         // Owner(s) Login
         else if (owners.contains(eplayername))
         {
             Bukkit.broadcastMessage(ownerlm);
+            ChatManagement.publicchat.add(eplayer);
         }
         // OP Login
         else if (!sauceAdminList.contains(eplayername) 
@@ -84,6 +89,7 @@ public class Rank implements Listener
                 && event.getPlayer().isOp())
         {
             Bukkit.broadcastMessage(operatorlm);
+            ChatManagement.publicchat.add(eplayer);
         }
     }
 }

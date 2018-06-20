@@ -5,6 +5,8 @@ import me.superischroma.saucein.command.*;
 import me.superischroma.saucein.rank.Rank;
 import me.superischroma.saucein.util.SauceInPlus;
 import net.pravian.aero.plugin.AeroPlugin;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 
 public class SauceIn extends AeroPlugin<SauceIn>
