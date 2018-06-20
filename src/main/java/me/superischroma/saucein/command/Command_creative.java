@@ -1,4 +1,5 @@
 package me.superischroma.saucein.command;
+import me.superischroma.saucein.rank.Rank;
 import me.superischroma.saucein.util.SauceInPlus;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -14,11 +15,7 @@ public class Command_creative extends SauceInPlus implements CommandExecutor
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
     {
-        if (!sender.hasPermission("saucein.creative"))
-        {
-            sender.sendMessage(noPermissionException);
-            return true;
-        } else
+        if (sender.isOp())
         {
             Player playerSender = (Player) sender;
             if (args.length == 0)
@@ -33,11 +30,20 @@ public class Command_creative extends SauceInPlus implements CommandExecutor
                 return true;
             }
         }
-        if (!sender.hasPermission("saucein.creative.others"))
+        else
         {
             sender.sendMessage(noPermissionException);
             return true;
-        } else
+        }
+        if (!Rank.sauceAdminList.contains(sender.getName())
+                    || !Rank.seniorSauceAdminList.contains(sender.getName())
+                    || !Rank.developerList.contains(sender.getName())
+                    || !Rank.owners.contains(sender.getName()))
+        {
+            sender.sendMessage(noPermissionException);
+            return true;
+        } 
+        else
         {
             Player target = Bukkit.getPlayer(args[0]);
             if (target == null)

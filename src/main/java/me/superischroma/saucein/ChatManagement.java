@@ -30,23 +30,21 @@ public class ChatManagement extends SauceInPlus implements Listener
         {
             event.setCancelled(true);
             adminchattoggle = false;
-            for (Player player : Bukkit.getOnlinePlayers())
-            {
                 if (Rank.sauceAdminList.contains(p.getName()))
                 {
-                    player.sendMessage(ChatColor.RED + "[Sauce Admin] " + p.getDisplayName() + ": " + event.getMessage());
+                    Bukkit.broadcastMessage(ChatColor.RED + "[Sauce Admin] " + p.getDisplayName() + ": " + event.getMessage());
                 }
                 else if (Rank.seniorSauceAdminList.contains(p.getName()))
                 {
-                    player.sendMessage(ChatColor.DARK_AQUA + "[Sr. Sauce Admin] " + p.getDisplayName() + ": " + event.getMessage());
+                    Bukkit.broadcastMessage(ChatColor.DARK_AQUA + "[Sr. Sauce Admin] " + p.getDisplayName() + ": " + event.getMessage());
                 }
                 else if (Rank.developerList.contains(p.getName()))
                 {
-                    player.sendMessage(ChatColor.LIGHT_PURPLE + "[Developer] " + p.getDisplayName() + ": " + event.getMessage());
+                    Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + "[Developer] " + p.getDisplayName() + ": " + event.getMessage());
                 }
                 else if (Rank.owners.contains(p.getName()))
                 {
-                    player.sendMessage(ChatColor.GREEN + "[Owner] " + p.getDisplayName() + ": " + event.getMessage());
+                    Bukkit.broadcastMessage(ChatColor.GREEN + "[Owner] " + p.getDisplayName() + ": " + event.getMessage());
                 }
                 else if (!Rank.sauceAdminList.contains(p.getName())
                         && !Rank.seniorSauceAdminList.contains(p.getName())
@@ -54,13 +52,12 @@ public class ChatManagement extends SauceInPlus implements Listener
                         && !Rank.owners.contains(p.getName())
                         && p.isOp())
                 {
-                    player.sendMessage(p.getDisplayName() + ": " + event.getMessage());
+                    Bukkit.broadcastMessage(p.getDisplayName() + ": " + event.getMessage());
                 }
                 else
                 {
-                    player.sendMessage(p.getDisplayName() + ": " + event.getMessage());
+                    Bukkit.broadcastMessage(p.getDisplayName() + ": " + event.getMessage());
                 }
-            }
         }
         else if (adminchat.contains(p))
         {

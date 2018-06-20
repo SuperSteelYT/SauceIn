@@ -1,6 +1,7 @@
 package me.superischroma.saucein.command;
 
 import me.superischroma.saucein.ChatManagement;
+import me.superischroma.saucein.rank.Rank;
 import me.superischroma.saucein.util.SauceInPlus;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -18,7 +19,10 @@ public class Command_adminchat extends SauceInPlus implements CommandExecutor
         Player playerSender = (Player) sender;
         if (cmd.getName().equalsIgnoreCase("adminchat"))
         {
-            if (sender.hasPermission("saucein.accessadminchat"))
+            if (Rank.sauceAdminList.contains(sender.getName())
+                    || Rank.seniorSauceAdminList.contains(sender.getName())
+                    || Rank.developerList.contains(sender.getName())
+                    || Rank.owners.contains(sender.getName()))
             {
                 if (args.length == 0)
                 {
@@ -37,6 +41,11 @@ public class Command_adminchat extends SauceInPlus implements CommandExecutor
                         return true;
                     }
                 }
+            }
+            else
+            {
+                sender.sendMessage(noPermissionException);
+                return true;
             }
         }
         return false;

@@ -15,7 +15,7 @@ public class Command_op extends SauceInPlus implements CommandExecutor
     {
         if (cmd.getName().equalsIgnoreCase("op"))
         {
-            if (sender.hasPermission("saucein.op"))
+            if (sender.isOp())
             {
                 if (args.length == 0)
                 {

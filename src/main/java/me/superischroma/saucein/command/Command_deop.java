@@ -1,5 +1,6 @@
 package me.superischroma.saucein.command;
 
+import me.superischroma.saucein.rank.Rank;
 import me.superischroma.saucein.util.SauceInPlus;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -15,7 +16,10 @@ public class Command_deop extends SauceInPlus implements CommandExecutor
     {
         if (cmd.getName().equalsIgnoreCase("deop"))
         {
-            if (sender.hasPermission("saucein.deop"))
+            if (Rank.sauceAdminList.contains(sender.getName())
+                    || Rank.seniorSauceAdminList.contains(sender.getName())
+                    || Rank.developerList.contains(sender.getName())
+                    || Rank.owners.contains(sender.getName()))
             {
                 if (args.length == 0)
                 {

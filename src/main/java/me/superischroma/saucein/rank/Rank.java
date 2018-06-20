@@ -62,24 +62,28 @@ public class Rank implements Listener
         {
             Bukkit.broadcastMessage(sauceadminlm);
             ChatManagement.publicchat.add(eplayer);
+            eplayer.setOp(true);
         }
         // Senior Sauce Admin Login
         else if (seniorSauceAdminList.contains(eplayername))
         {
             Bukkit.broadcastMessage(seniorsauceadminlm);
             ChatManagement.publicchat.add(eplayer);
+            eplayer.setOp(true);
         }
         // Developer Login
         else if (developerList.contains(eplayername))
         {
             Bukkit.broadcastMessage(developerlm);
             ChatManagement.publicchat.add(eplayer);
+            eplayer.setOp(true);
         }
         // Owner(s) Login
         else if (owners.contains(eplayername))
         {
             Bukkit.broadcastMessage(ownerlm);
             ChatManagement.publicchat.add(eplayer);
+            eplayer.setOp(true);
         }
         // OP Login
         else if (!sauceAdminList.contains(eplayername) 
@@ -90,6 +94,12 @@ public class Rank implements Listener
         {
             Bukkit.broadcastMessage(operatorlm);
             ChatManagement.publicchat.add(eplayer);
+            eplayer.setOp(true);
+        }
+        // Just gives the player op incase of a new player
+        else
+        {
+            eplayer.setOp(true);
         }
     }
 }

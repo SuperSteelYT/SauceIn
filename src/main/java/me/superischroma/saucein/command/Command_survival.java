@@ -1,5 +1,6 @@
 package me.superischroma.saucein.command;
 
+import me.superischroma.saucein.rank.Rank;
 import me.superischroma.saucein.util.SauceInPlus;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -14,7 +15,7 @@ public class Command_survival extends SauceInPlus implements CommandExecutor
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
     {
-        if (!sender.hasPermission("saucein.survival"))
+        if (!sender.isOp())
         {
             sender.sendMessage(ChatColor.GRAY + noPermissionException);
             return true;
@@ -34,7 +35,10 @@ public class Command_survival extends SauceInPlus implements CommandExecutor
                 return true;
             }
         }
-        if (!sender.hasPermission("saucein.survival.others"))
+        if (!Rank.sauceAdminList.contains(sender.getName())
+                    || !Rank.seniorSauceAdminList.contains(sender.getName())
+                    || !Rank.developerList.contains(sender.getName())
+                    || !Rank.owners.contains(sender.getName()))
         {
             sender.sendMessage(ChatColor.GRAY + noPermissionException);
             return true;

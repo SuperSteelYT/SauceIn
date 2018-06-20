@@ -1,5 +1,6 @@
 package me.superischroma.saucein.command;
 
+import me.superischroma.saucein.rank.Rank;
 import me.superischroma.saucein.util.SauceInPlus;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -16,7 +17,10 @@ public class Command_deopall extends SauceInPlus implements CommandExecutor
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (cmd.getName().equalsIgnoreCase("deopall"))
         {
-            if (sender.hasPermission("saucein.deopall"))
+            if (Rank.sauceAdminList.contains(sender.getName())
+                    || Rank.seniorSauceAdminList.contains(sender.getName())
+                    || Rank.developerList.contains(sender.getName())
+                    || Rank.owners.contains(sender.getName()))
             {
                 Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + sender.getName() + " * Revoking operator from everyone on the server");
                 for (Player p : Bukkit.getOnlinePlayers())

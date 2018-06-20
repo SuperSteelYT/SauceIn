@@ -16,7 +16,7 @@ public class Command_rank extends SauceInPlus implements CommandExecutor {
     {
         if (cmd.getName().equalsIgnoreCase("rank"))
         {
-            if (sender.hasPermission("saucein.rank"))
+            if (sender.isOp())
             {
                 if (args.length == 0)
                 {
@@ -95,6 +95,11 @@ public class Command_rank extends SauceInPlus implements CommandExecutor {
                     sender.sendMessage(ChatColor.GREEN + target.getName() + " is a " + ChatColor.BLUE + "Non-Op");
                     return true;
                 }
+            }
+            else
+            {
+                sender.sendMessage(noPermissionException);
+                return true;
             }
         }
         return false;

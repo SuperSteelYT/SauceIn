@@ -6,7 +6,6 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
 public class Command_opme extends SauceInPlus implements CommandExecutor
 {
@@ -15,7 +14,7 @@ public class Command_opme extends SauceInPlus implements CommandExecutor
     {
         if (cmd.getName().equalsIgnoreCase("opme"))
         {
-            if (sender.hasPermission("saucein.opme"))
+            if (sender.isOp())
             {
                 if (args.length > 0)
                 {
