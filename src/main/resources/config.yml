@@ -1,1 +1,10 @@
 # SauceIn Config #
+
+sauce_admins:
+    - Emliei
+senior_sauce_admins:
+    - Shadowsynth
+developers:
+    - Super_
+owners:
+    - Telnet_

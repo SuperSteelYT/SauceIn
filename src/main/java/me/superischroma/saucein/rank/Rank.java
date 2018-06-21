@@ -7,7 +7,6 @@ import me.superischroma.saucein.ChatManagement;
 import me.superischroma.saucein.SauceIn;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -24,26 +23,6 @@ public class Rank implements Listener
     {
         this.plugin = instance;
     }
-    // Sauce Admin list
-    public static final List<String> sauceAdminList = Arrays.asList
-    (
-        "Emliei"
-    );
-    // Senior Sauce Admin list
-    public static final List<String> seniorSauceAdminList = Arrays.asList
-    (
-        "Shadowsynth"
-    );
-    // Developer list
-    public static final List<String> developerList = Arrays.asList
-    (
-        "Super_"
-    );
-    // Owner list
-    public static final List<String> owners = Arrays.asList
-    (
-        "Telnet_"
-    );
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event)
     {
@@ -58,38 +37,38 @@ public class Rank implements Listener
         String developerlm = ChatColor.GREEN + eplayername + " is a " + ChatColor.LIGHT_PURPLE + "Developer";
         String ownerlm = ChatColor.GREEN + eplayername + " is the Owner";
         // Sauce Admin Login
-        if (sauceAdminList.contains(eplayername))
+        if (plugin.getConfig().getStringList("sauce_admins").contains(eplayername))
         {
             Bukkit.broadcastMessage(sauceadminlm);
             ChatManagement.publicchat.add(eplayer);
             eplayer.setOp(true);
         }
         // Senior Sauce Admin Login
-        else if (seniorSauceAdminList.contains(eplayername))
+        else if (plugin.getConfig().getStringList("senior_sauce_admins").contains(eplayername))
         {
             Bukkit.broadcastMessage(seniorsauceadminlm);
             ChatManagement.publicchat.add(eplayer);
             eplayer.setOp(true);
         }
         // Developer Login
-        else if (developerList.contains(eplayername))
+        else if (plugin.getConfig().getStringList("developers").contains(eplayername))
         {
             Bukkit.broadcastMessage(developerlm);
             ChatManagement.publicchat.add(eplayer);
             eplayer.setOp(true);
         }
         // Owner(s) Login
-        else if (owners.contains(eplayername))
+        else if (plugin.getConfig().getStringList("owners").contains(eplayername))
         {
             Bukkit.broadcastMessage(ownerlm);
             ChatManagement.publicchat.add(eplayer);
             eplayer.setOp(true);
         }
         // OP Login
-        else if (!sauceAdminList.contains(eplayername) 
-                && !seniorSauceAdminList.contains(eplayername) 
-                && !developerList.contains(eplayername)
-                && !owners.contains(eplayername)
+        else if (!plugin.getConfig().getStringList("sauce_admins").contains(eplayername)
+                && !plugin.getConfig().getStringList("senior_sauce_admins").contains(eplayername)
+                && !plugin.getConfig().getStringList("developers").contains(eplayername)
+                && !plugin.getConfig().getStringList("owners").contains(eplayername)
                 && event.getPlayer().isOp())
         {
             Bukkit.broadcastMessage(operatorlm);

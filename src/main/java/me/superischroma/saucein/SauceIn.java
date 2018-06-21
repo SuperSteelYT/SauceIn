@@ -4,12 +4,10 @@ import me.superischroma.saucein.util.Log;
 import me.superischroma.saucein.command.*;
 import me.superischroma.saucein.rank.Rank;
 import me.superischroma.saucein.util.SauceInPlus;
-import net.pravian.aero.plugin.AeroPlugin;
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
+import org.bukkit.plugin.java.JavaPlugin;
 
-public class SauceIn extends AeroPlugin<SauceIn>
+public class SauceIn extends JavaPlugin
 {
     private static SauceIn instance;
     public static SauceIn getInstance()
@@ -23,7 +21,6 @@ public class SauceIn extends AeroPlugin<SauceIn>
         pm.registerEvents(new Rank(this), this);
         pm.registerEvents(new ChatManagement(this), this);
     }
-    // Register the configuration file
     private void registerConfig()
     {
         getConfig().options().copyDefaults(true);
@@ -45,7 +42,7 @@ public class SauceIn extends AeroPlugin<SauceIn>
         this.getCommand("adminchat").setExecutor(new Command_adminchat());
     }
     @Override
-    public void enable()
+    public void onEnable()
     {
         registerCommands();
         Log.info("Loaded " + SauceInPlus.commandSize + " commands.");
@@ -57,7 +54,7 @@ public class SauceIn extends AeroPlugin<SauceIn>
         Log.info("Enabled.");
     }
     @Override
-    public void disable()
+    public void onDisable()
     {
         Log.info("Disabled.");
         instance = null;

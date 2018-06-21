@@ -20,31 +20,31 @@ public class Command_rank extends SauceInPlus implements CommandExecutor {
             {
                 if (args.length == 0)
                 {
-                    if (Rank.sauceAdminList.contains(sender.getName()))
+                    if (plugin.getConfig().getStringList("sauce_admins").contains(sender.getName()))
                     {
                         sender.sendMessage(ChatColor.GREEN + sender.getName() + " is a " + ChatColor.RED + "Sauce Admin");
                         return true;
                     }
-                    else if (Rank.seniorSauceAdminList.contains(sender.getName()))
+                    else if (plugin.getConfig().getStringList("senior_sauce_admins").contains(sender.getName()))
                     {
                         sender.sendMessage(ChatColor.GREEN + sender.getName() + " is a " + ChatColor.DARK_AQUA + "Senior Sauce Admin");
                         return true;
                     }
-                    else if (Rank.developerList.contains(sender.getName()))
+                    else if (plugin.getConfig().getStringList("developers").contains(sender.getName()))
                     {
                         sender.sendMessage(ChatColor.GREEN + sender.getName() + " is a " + ChatColor.LIGHT_PURPLE + "Developer");
                         return true;
                     }
-                    else if (Rank.owners.contains(sender.getName()))
+                    else if (plugin.getConfig().getStringList("owners").contains(sender.getName()))
                     {
                         sender.sendMessage(ChatColor.GREEN + sender.getName() + " is the " + ChatColor.GREEN + "Owner");
                         return true;
                     }
-                    else if (!Rank.sauceAdminList.contains(sender.getName())
-                            && !Rank.seniorSauceAdminList.contains(sender.getName())
-                            && !Rank.developerList.contains(sender.getName())
-                            && !Rank.owners.contains(sender.getName())
-                            && sender.isOp())
+                    else if (!plugin.getConfig().getStringList("sauce_admins").contains(sender.getName())
+                        && !plugin.getConfig().getStringList("senior_sauce_admins").contains(sender.getName())
+                        && !plugin.getConfig().getStringList("developers").contains(sender.getName())
+                        && !plugin.getConfig().getStringList("owners").contains(sender.getName())
+                        && sender.isOp())
                     {
                         sender.sendMessage(ChatColor.GREEN + sender.getName() + " is an " + ChatColor.GOLD + "Op");
                         return true;
@@ -61,30 +61,30 @@ public class Command_rank extends SauceInPlus implements CommandExecutor {
                     sender.sendMessage(playerNotFoundException);
                     return true;
                 }
-                if (Rank.sauceAdminList.contains(target.getName()))
+                if (plugin.getConfig().getStringList("sauce_admins").contains(sender.getName()))
                 {
                     sender.sendMessage(ChatColor.GREEN + target.getName() + " is a " + ChatColor.RED + "Sauce Admin");
                     return true;
                 }
-                else if (Rank.seniorSauceAdminList.contains(target.getName()))
+                else if (plugin.getConfig().getStringList("senior_sauce_admins").contains(sender.getName()))
                 {
                     sender.sendMessage(ChatColor.GREEN + target.getName() + " is a " + ChatColor.DARK_AQUA + "Senior Sauce Admin");
                     return true;
                 }
-                else if (Rank.developerList.contains(target.getName()))
+                else if (plugin.getConfig().getStringList("developers").contains(sender.getName()))
                 {
                     sender.sendMessage(ChatColor.GREEN + target.getName() + " is a " + ChatColor.LIGHT_PURPLE + "Developer");
                     return true;
                 }
-                else if (Rank.owners.contains(target.getName()))
+                else if (plugin.getConfig().getStringList("owners").contains(sender.getName()))
                 {
                     sender.sendMessage(ChatColor.GREEN + target.getName() + " is the Owner");
                     return true;
                 }
-                else if (!Rank.sauceAdminList.contains(target.getName())
-                        && !Rank.seniorSauceAdminList.contains(target.getName())
-                        && !Rank.developerList.contains(target.getName())
-                        && !Rank.owners.contains(target.getName())
+                else if (!plugin.getConfig().getStringList("sauce_admins").contains(target.getName())
+                        && !plugin.getConfig().getStringList("senior_sauce_admins").contains(target.getName())
+                        && !plugin.getConfig().getStringList("developers").contains(target.getName())
+                        && !plugin.getConfig().getStringList("owners").contains(target.getName())
                         && target.isOp())
                 {
                     sender.sendMessage(ChatColor.GREEN + target.getName() + " is an " + ChatColor.GOLD + "Op");

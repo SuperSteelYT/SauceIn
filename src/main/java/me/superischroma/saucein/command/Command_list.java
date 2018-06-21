@@ -33,28 +33,28 @@ public class Command_list extends SauceInPlus implements CommandExecutor
                 .append(" online currently.");
         for (Player all : Bukkit.getOnlinePlayers())
         {
-            String tag = "";
-            if (Rank.seniorSauceAdminList.contains(sender.getName()))
+            String tag;
+            if (plugin.getConfig().getStringList("senior_sauce_admins").contains(sender.getName()))
             {
                 tag = (ChatColor.DARK_AQUA + "[SrSA]");
             }
-            else if (Rank.sauceAdminList.contains(sender.getName()))
+            else if (plugin.getConfig().getStringList("senior_sauce_admins").contains(sender.getName()))
             {
                 tag = (ChatColor.RED + "[SA]");
             }
-            else if (Rank.developerList.contains(sender.getName()))
+            else if (plugin.getConfig().getStringList("developers").contains(sender.getName()))
             {
                 tag = (ChatColor.LIGHT_PURPLE + "[Dev]");
             }
-            else if (Rank.owners.contains(sender.getName()))
+            else if (plugin.getConfig().getStringList("owners").contains(sender.getName()))
             {
                 tag = (ChatColor.GREEN + "[Owner]");
             }
-            else if (!sauceAdminList.contains(sender.getName()) 
-                && !seniorSauceAdminList.contains(sender.getName())
-                && !developerList.contains(sender.getName())
-                && !owners.contains(sender.getName())
-                && sender.isOp())
+            else if (!plugin.getConfig().getStringList("sauce_admins").contains(sender.getName())
+                        && !plugin.getConfig().getStringList("senior_sauce_admins").contains(sender.getName())
+                        && !plugin.getConfig().getStringList("developers").contains(sender.getName())
+                        && !plugin.getConfig().getStringList("owners").contains(sender.getName())
+                        && sender.isOp())
             {
                 tag = (ChatColor.GOLD + "[Op]");
             }

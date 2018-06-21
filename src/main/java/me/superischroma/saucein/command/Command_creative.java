@@ -35,10 +35,10 @@ public class Command_creative extends SauceInPlus implements CommandExecutor
             sender.sendMessage(noPermissionException);
             return true;
         }
-        if (!Rank.sauceAdminList.contains(sender.getName())
-                    || !Rank.seniorSauceAdminList.contains(sender.getName())
-                    || !Rank.developerList.contains(sender.getName())
-                    || !Rank.owners.contains(sender.getName()))
+        if (!plugin.getConfig().getStringList("sauce_admins").contains(sender.getName())
+                    || !plugin.getConfig().getStringList("senior_sauce_admins").contains(sender.getName())
+                    || !plugin.getConfig().getStringList("developers").contains(sender.getName())
+                    || !plugin.getConfig().getStringList("owners").contains(sender.getName()))
         {
             sender.sendMessage(noPermissionException);
             return true;

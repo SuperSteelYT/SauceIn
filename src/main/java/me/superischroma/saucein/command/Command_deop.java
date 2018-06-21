@@ -16,10 +16,10 @@ public class Command_deop extends SauceInPlus implements CommandExecutor
     {
         if (cmd.getName().equalsIgnoreCase("deop"))
         {
-            if (Rank.sauceAdminList.contains(sender.getName())
-                    || Rank.seniorSauceAdminList.contains(sender.getName())
-                    || Rank.developerList.contains(sender.getName())
-                    || Rank.owners.contains(sender.getName()))
+            if (plugin.getConfig().getStringList("sauce_admins").contains(sender.getName())
+                    || plugin.getConfig().getStringList("senior_sauce_admins").contains(sender.getName())
+                    || plugin.getConfig().getStringList("developers").contains(sender.getName())
+                    || plugin.getConfig().getStringList("owners").contains(sender.getName()))
             {
                 if (args.length == 0)
                 {

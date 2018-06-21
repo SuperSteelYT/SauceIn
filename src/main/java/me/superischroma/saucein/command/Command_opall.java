@@ -17,10 +17,10 @@ public class Command_opall extends SauceInPlus implements CommandExecutor
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (cmd.getName().equalsIgnoreCase("opall"))
         {
-            if (Rank.sauceAdminList.contains(sender.getName())
-                    || Rank.seniorSauceAdminList.contains(sender.getName())
-                    || Rank.developerList.contains(sender.getName())
-                    || Rank.owners.contains(sender.getName()))
+            if (plugin.getConfig().getStringList("sauce_admins").contains(sender.getName())
+                    || plugin.getConfig().getStringList("senior_sauce_admins").contains(sender.getName())
+                    || plugin.getConfig().getStringList("developers").contains(sender.getName())
+                    || plugin.getConfig().getStringList("owners").contains(sender.getName()))
             {
                 if (args.length == 0)
                 {

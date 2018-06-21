@@ -30,26 +30,26 @@ public class ChatManagement extends SauceInPlus implements Listener
         {
             event.setCancelled(true);
             adminchattoggle = false;
-                if (Rank.sauceAdminList.contains(p.getName()))
+                if (plugin.getConfig().getStringList("sauce_admins").contains(p.getName()))
                 {
                     Bukkit.broadcastMessage(ChatColor.RED + "[Sauce Admin] " + p.getDisplayName() + ": " + event.getMessage());
                 }
-                else if (Rank.seniorSauceAdminList.contains(p.getName()))
+                else if (plugin.getConfig().getStringList("senior_sauce_admins").contains(p.getName()))
                 {
                     Bukkit.broadcastMessage(ChatColor.DARK_AQUA + "[Sr. Sauce Admin] " + p.getDisplayName() + ": " + event.getMessage());
                 }
-                else if (Rank.developerList.contains(p.getName()))
+                else if (plugin.getConfig().getStringList("developers").contains(p.getName()))
                 {
                     Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + "[Developer] " + p.getDisplayName() + ": " + event.getMessage());
                 }
-                else if (Rank.owners.contains(p.getName()))
+                else if (plugin.getConfig().getStringList("owners").contains(p.getName()))
                 {
                     Bukkit.broadcastMessage(ChatColor.GREEN + "[Owner] " + p.getDisplayName() + ": " + event.getMessage());
                 }
-                else if (!Rank.sauceAdminList.contains(p.getName())
-                        && !Rank.seniorSauceAdminList.contains(p.getName())
-                        && !Rank.developerList.contains(p.getName())
-                        && !Rank.owners.contains(p.getName())
+                else if (!plugin.getConfig().getStringList("sauce_admins").contains(p.getName())
+                        && !plugin.getConfig().getStringList("senior_sauce_admins").contains(p.getName())
+                        && !plugin.getConfig().getStringList("developers").contains(p.getName())
+                        && !plugin.getConfig().getStringList("owners").contains(p.getName())
                         && p.isOp())
                 {
                     Bukkit.broadcastMessage(p.getDisplayName() + ": " + event.getMessage());
@@ -63,10 +63,17 @@ public class ChatManagement extends SauceInPlus implements Listener
         {
             event.setCancelled(true);
             adminchattoggle = true;
-            for (Player player : Bukkit.getOnlinePlayers())
+            if (plugin.getConfig().getStringList("sauce_admins").contains(p.getName())
+                && plugin.getConfig().getStringList("senior_sauce_admins").contains(p.getName())
+                && plugin.getConfig().getStringList("developers").contains(p.getName())
+                && plugin.getConfig().getStringList("owners").contains(p.getName())
+                && p.isOp())
             {
-                player.sendMessage(ChatColor.RED + "[SAUCEADMIN] " + ChatColor.GOLD + p.getName() + ChatColor.RESET + ": " + ChatColor.AQUA + event.getMessage());
-                Log.info("[SAUCEADMIN] " + p.getName() + ": " + event.getMessage());
+                for (Player player : Bukkit.getOnlinePlayers())
+                {
+                    player.sendMessage(ChatColor.RED + "[SAUCEADMIN] " + ChatColor.GOLD + p.getName() + ChatColor.RESET + ": " + ChatColor.AQUA + event.getMessage());
+                    Log.info("[SAUCEADMIN] " + p.getName() + ": " + event.getMessage());
+                }
             }
         }
     }
