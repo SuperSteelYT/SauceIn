@@ -41,4 +41,7 @@ commands:
     adminchat:
         description: Toggle adminchat.
         usage: /<command>
+    saucein:
+        description: Main command.
+        usage: /<command> [reload]
 # As of now, permissions aren't used. They might be used in the future, though.

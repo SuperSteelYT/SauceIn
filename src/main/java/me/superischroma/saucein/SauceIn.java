@@ -40,6 +40,7 @@ public class SauceIn extends JavaPlugin
         this.getCommand("list").setExecutor(new Command_list());
         this.getCommand("rank").setExecutor(new Command_rank());
         this.getCommand("adminchat").setExecutor(new Command_adminchat());
+        this.getCommand("saucein").setExecutor(new Command_saucein());
     }
     @Override
     public void onEnable()

@@ -36,9 +36,9 @@ public class Command_creative extends SauceInPlus implements CommandExecutor
             return true;
         }
         if (!plugin.getConfig().getStringList("sauce_admins").contains(sender.getName())
-                    || !plugin.getConfig().getStringList("senior_sauce_admins").contains(sender.getName())
-                    || !plugin.getConfig().getStringList("developers").contains(sender.getName())
-                    || !plugin.getConfig().getStringList("owners").contains(sender.getName()))
+                    && !plugin.getConfig().getStringList("senior_sauce_admins").contains(sender.getName())
+                    && !plugin.getConfig().getStringList("developers").contains(sender.getName())
+                    && !plugin.getConfig().getStringList("owners").contains(sender.getName()))
         {
             sender.sendMessage(noPermissionException);
             return true;
